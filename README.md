@@ -1,6 +1,6 @@
-# TailorMail 📨 – AI-Powered Cold Email Generator
+# AutoReach 📨 – AI-Powered Cold Email Generator
 
-**TailorMail** is a Streamlit-based web application that automatically generates personalized cold emails for job applications. It combines the power of **LangChain**, **LLMs (OpenAI/Groq)**, and **resume parsing** to craft tailored outreach emails using your uploaded resume and a job/company URL.
+**AutoReach** is a Streamlit-based web application that automatically generates personalized cold emails for job applications. It combines the power of **LangChain**, **LLMs (OpenAI/Groq)**, and **resume parsing** to craft tailored outreach emails using your uploaded resume and a job/company URL.
 
 ## 🚀 Features
 
