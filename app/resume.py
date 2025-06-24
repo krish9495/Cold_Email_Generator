@@ -3,6 +3,7 @@ import os
 import re
 
 class Resume:
+    @staticmethod
     def extract_resume_text(pdf_path: str) -> str:
         if not os.path.exists(pdf_path):
             raise FileNotFoundError(f"No file found at {pdf_path}")
@@ -18,9 +19,7 @@ class Resume:
             print(f"Error reading PDF: {e}")
             return ""
 
-    resume_text=extract_resume_text(r'C:\Users\avani\Downloads\Resume_june.pdf')
-
-
+    @staticmethod
     def label_resume_sections(resume_text):
         # Define common section headers (case-insensitive)
         sections = [
@@ -60,8 +59,5 @@ class Resume:
             labeled_sections[section] = '\n'.join(filter(None, labeled_sections[section]))
 
         return labeled_sections
-
-
-    sections = label_resume_sections(resume_text)
 
     
