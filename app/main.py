@@ -11,16 +11,21 @@ def trim_text(text, max_chars=1000):
 
 def create_streamlit_app(llm, resume, clean_text):
     st.title("Cold Mail Generator")
+    groq_api_key = st.text_input("Enter your Groq API Key:", type="password")
     url_input = st.text_input("Enter a URL:")
     resume_file = st.file_uploader("Upload your resume (PDF)", type="pdf")
     additional_info = st.text_area("Additional Information (Optional):", "")
     submit_button = st.button("Submit")
 
     if submit_button:
+        if not groq_api_key:
+            st.error("Please enter your Groq API Key to proceed.")
+            return
+            
         try:
             loader = WebBaseLoader([url_input])
             data = clean_text(loader.load().pop().page_content)
-            chain = Chain()
+            chain = Chain(api_key=groq_api_key)
             jobs = chain.extract_jobs(trim_text(data, max_chars=2000))
             
             if resume_file is not None:

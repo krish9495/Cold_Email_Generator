@@ -8,10 +8,10 @@ from langchain_core.prompts import PromptTemplate
 load_dotenv()
 
 class Chain:
-    def __init__(self):
+    def __init__(self, api_key):
         self.llm = ChatGroq(
             temperature=0,
-            groq_api_key=os.getenv("GROQ_API_KEY"),
+            groq_api_key=api_key,
             model_name="llama3-8b-8192"
         )
 
